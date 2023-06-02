@@ -24,6 +24,7 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/kosts', [KostsController::class, 'index'])->name('kosts');
+Route::get('/kosts/{id}', [KostsController::class, 'show'])->name('kosts.show');
 Route::put('/kosts/{id}', [KostsController::class, 'update']);
-Route::post('/kosts', [KostsController::class, 'store']);
+Route::post('/kosts', [KostsController::class, 'store'])->name('kosts.store');
 Route::delete('/kosts/{id}', [KostsController::class, 'destroy']);

@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Kosts extends Model
 {
     use HasFactory;
+    protected $fillable = ['name', 'address', 'description'];
+    protected $guarded = [];
 }

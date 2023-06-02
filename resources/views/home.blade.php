@@ -7,12 +7,14 @@
         <br>
         <br>
         <h3>Pilih Kostan impian mu dibawah ini sekarang ya!...</h3>
+        <a href=""></a>
         @foreach ($data_kosts as $item)
             <div class="card-body bg-white p-4 shadow-lg rounded">
-                <img src=src="{{ asset('images/' . $item->image) }}" alt="">
+                <img src=src="{{ asset('images/' . $item->image) }}" alt="images">
                 <h1>{{ $item->name }}</h1>
                 <h2>{{ $item->address }}</h2>
                 <h2>{{ $item->description }}</h2>
+                <a href="{{ route('kosts.show', $item->id) }}" class="btn btn-primary">Lihat Detail Kosts</a>
             </div>
         @endforeach
     </div>
