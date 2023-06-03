@@ -1,9 +1,13 @@
-*{
+* {
     padding: 0;
     margin: 0;
+    /* background-color: ; */
+}
+
+.bg-1{
     background-color: white;
 }
- 
+
 .card-1 {
     margin-right: 0px;
     margin-left: 0px;

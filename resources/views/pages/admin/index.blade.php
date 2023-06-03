@@ -3,10 +3,9 @@
 @section('content')
     <div>
         <h1 class="text-center">hello world ini dari index admin</h1>
-        <div class="container">
-            <a class="btn btn-primary" href="{{ route('admin_create_kosts') }}">Create New Kosts</a>
-            <div class="card-1 m-4 p-3">
-                <h3 class="text-center">Product</h3>
+        <div class="">
+            <div class="card-1 m-4 p-4">
+                <a class="btn btn-primary my-3" href="{{ route('admin_create_kosts') }}">Create New Kosts</a>
                 <table class="table table-hover">
                     <thead>
                         <tr class="text-center">
