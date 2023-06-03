@@ -15,6 +15,7 @@
                             <th>Nama Kosts</th>
                             <th>Alamat</th>
                             <th>description</th>
+                            <th>create room</th>
                             <th>action</th>
                         </tr>
                     </thead>
@@ -32,6 +33,9 @@
                                 <td class="text-center">{{ $dk->name }}</td>
                                 <td class="text-center">{{ $dk->address }}</td>
                                 <td class="text-center">{{ $dk->description }}</td>
+                                <td class="text-center"><a class="btn btn-primary"
+                                        href="{{ route('admin_create_rooms', $dk->id) }}">New Room</a>
+                                </td>
                                 <td class="tex-center">
                                     <div class="d-flex justify-content-center">
                                         {{-- <form action="" class="m-1">

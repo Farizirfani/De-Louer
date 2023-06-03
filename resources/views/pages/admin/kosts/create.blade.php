@@ -6,7 +6,7 @@
         <h1>Testing ini dari add Kosts</h1>
         <br>
 
-        <form method="POST" action="{{ route('create.kosts') }}">
+        <form method="POST" action="{{ route('create_kosts') }}">
             @csrf
 
             <div>

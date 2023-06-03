@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Rooms extends Model
 {
     use HasFactory;
+    public function parent()
+    {
+        return $this->belongsTo(Kosts::class);
+    }
 }

@@ -28,7 +28,9 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 // Route admin
 Route::get('/admin', [adminController::class, 'index'])->name('admin_index');
 Route::get('/admin/create/kosts', [adminController::class, 'view_create_kosts'])->name('admin_create_kosts');
-Route::post('/admin/create/kosts', [adminController::class, 'create_kosts'])->name('create.kosts');
+Route::post('/admin/create/kosts', [adminController::class, 'create_kosts'])->name('create_kosts');
+Route::get('/admin/create/rooms/{id}', [adminController::class, 'view_create_rooms'])->name('admin_create_rooms');
+Route::post('/admin/create/rooms/{id}/', [adminController::class, 'create_rooms'])->name('create_rooms');
 
 // Route Kosts
 Route::get('/kosts', [KostsController::class, 'index'])->name('kosts');

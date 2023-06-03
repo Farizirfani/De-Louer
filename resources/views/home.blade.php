@@ -9,7 +9,7 @@
         <h3>Pilih Kostan impian mu dibawah ini sekarang ya!...</h3>
         <a href=""></a>
         @foreach ($data_kosts as $item)
-            <div class="card-body bg-white p-4 my-4 shadow-lg rounded">
+            <div class="card-1 bg-white p-4 my-4 shadow-lg rounded">
                 <img src=src="{{ asset('images/' . $item->image) }}" alt="images">
                 <h1>{{ $item->name }}</h1>
                 <h2>{{ $item->address }}</h2>

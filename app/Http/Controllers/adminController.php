@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kosts;
+use App\Models\Rooms;
 use Illuminate\Http\Request;
 
 class adminController extends Controller
@@ -43,7 +44,30 @@ class adminController extends Controller
 
     // ------------------------ end kosts ---------------------------------
 
+    // ----------------------- Rooms --------------------------------------
 
+    public function view_create_rooms($id)
+    {
+        $data_rooms = Rooms::find($id);
+        return view('pages.admin.rooms.create', compact('data_rooms'));
+    }
+
+    public function create_rooms(Request $request, $id)
+    {
+        $kosts_id = Kosts::find($id);
+
+        $room = new Rooms;
+        $room->kosts_id = $kosts_id->id;
+        $room->nama_room = $request->input('nama_room');
+        $room->price = $request->input('price');
+        $room->capacity = $request->input('capacity');
+
+        // dd($room);
+        $room->save();
+        return redirect()->route('admin_index');
+    }
+
+    // ----------------------- ende Rooms ---------------------------------
 
     public function create()
     {
