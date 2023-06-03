@@ -38,8 +38,25 @@ class adminController extends Controller
 
     public function view_edit_kosts($id)
     {
-        $product = Kosts::find($id);
-        return view('admin.edit', compact('product'));
+        $edit_kosts = Kosts::find($id);
+        return view('pages.admin.kosts.edit', compact('edit_kosts'));
+    }
+
+    public function edit_kosts(Request $request, $id)
+    {
+        $edit_kosts = Kosts::find($id);
+        $edit_kosts->name = $request->name;
+        $edit_kosts->address = $request->address;
+        $edit_kosts->description = $request->description;
+        $edit_kosts->save();
+
+        return redirect()->route('admin_index');
+    }
+
+    public function destroy_kosts($id)
+    {
+        Kosts::destroy($id);
+        return redirect()->route('admin_index');
     }
 
     // ------------------------ end kosts ---------------------------------
@@ -68,6 +85,7 @@ class adminController extends Controller
     }
 
     // ----------------------- ende Rooms ---------------------------------
+
 
     public function create()
     {

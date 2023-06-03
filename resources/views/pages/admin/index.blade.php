@@ -37,15 +37,15 @@
                                 </td>
                                 <td class="tex-center">
                                     <div class="d-flex justify-content-center">
-                                        {{-- <form action="" class="m-1">
-                                            <a href="{{ route('admin.edit', $dk->id) }}" class="btn btn-warning"
-                                                href="">Edit</a>
+                                        <form action="" class="m-1">
+                                            <a href="{{ route('admin_edit_kosts', $dk->id) }}"
+                                                class="btn btn-warning text-white" href="">Edit</a>
                                         </form>
-                                        <form action="{{ route('admin.destroy', $dk->id) }}" method="POST" class="m-1">
+                                        <form action="{{ route('destroy_kosts', $dk->id) }}" method="POST" class="m-1">
                                             @method('delete')
                                             @csrf
                                             <button type="submit" class="btn btn-danger">Delete</button>
-                                        </form> --}}
+                                        </form>
                                     </div>
                                 </td>
                             </tr>
