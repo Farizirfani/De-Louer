@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kosts;
 use Illuminate\Http\Request;
 
 class adminController extends Controller
@@ -11,12 +12,39 @@ class adminController extends Controller
      */
     public function index()
     {
-        //
+        $data_kosts = Kosts::all();
+        // $data_rooms = Kosts::all();
+        return view('pages.admin.index', compact('data_kosts'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
+    // ------------------------ Kosts -----------------------
+
+    public function view_create_kosts()
+    {
+        return view('pages.admin.kosts.create');
+    }
+
+    public function create_kosts(Request $request)
+    {
+        Kosts::create([
+            'name' => $request->input('name'),
+            'address' => $request->input('address'),
+            'description' => $request->input('description'),
+        ]);
+        return redirect()->route('admin_index');
+    }
+
+    public function view_edit_kosts($id)
+    {
+        $product = Kosts::find($id);
+        return view('admin.edit', compact('product'));
+    }
+
+    // ------------------------ end kosts ---------------------------------
+
+
+
     public function create()
     {
         //

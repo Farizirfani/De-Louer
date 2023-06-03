@@ -14,7 +14,7 @@ class roomSeeders extends Seeder
     public function run(): void
     {
         DB::table('rooms')->insert([
-            'kost_id' => '1',
+            'kosts_id' => '1',
             'nama_room' => 'Standard',
             'price' => 1500000,
             'capacity' => 5,

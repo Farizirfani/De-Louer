@@ -34,9 +34,10 @@ class RoomsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Rooms $rooms)
+    public function show($id)
     {
-        //
+        $detail_room = Rooms::find($id);
+        return view('pages.user.rooms.detailRooms', compact('detail_room'));
     }
 
     /**

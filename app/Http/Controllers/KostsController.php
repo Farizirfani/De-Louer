@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kosts;
+use App\Models\Rooms;
 use Illuminate\Http\Request;
 
 class KostsController extends Controller
@@ -12,7 +13,7 @@ class KostsController extends Controller
      */
     public function index()
     {
-        return view('pages.kosts.addKosts');
+        //
     }
 
     /**
@@ -28,26 +29,25 @@ class KostsController extends Controller
      */
     public function store(Request $request)
     {
-        $kost = Kosts::create([
-            'name' => $request->input('name'),
-            'address' => $request->input('address'),
-            'description' => $request->input('description'),
-        ]);
-
-        return redirect()->route('home');
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Kosts $kosts)
+    public function show($id)
     {
-        return view('pages.kosts.detailKosts');
+        //
+        // $detail_kosts = Kosts::find($id);
+        // return view('pages.user.kosts.detailKosts', compact('detail_kosts', 'rooms'));
+
+        $detail_kosts = Kosts::with('rooms')->findOrFail($id);
+        return view('pages.user.kosts.detailKosts', compact('detail_kosts'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
+    // public function
+
     public function edit(Kosts $kosts)
     {
         //

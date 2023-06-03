@@ -5,9 +5,8 @@
     <div>
         <h1>Testing ini dari add Kosts</h1>
         <br>
-        <!-- views/kosts/create.blade.php -->
 
-        <form method="POST" action="{{ route('kosts.store') }}">
+        <form method="POST" action="{{ route('create.kosts') }}">
             @csrf
 
             <div>

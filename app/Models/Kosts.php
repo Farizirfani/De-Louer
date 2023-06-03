@@ -10,4 +10,10 @@ class Kosts extends Model
     use HasFactory;
     protected $fillable = ['name', 'address', 'description'];
     protected $guarded = [];
+
+    // rooms
+    public function rooms()
+    {
+        return $this->hasMany(Rooms::class);
+    }
 }
