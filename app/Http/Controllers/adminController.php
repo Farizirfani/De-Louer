@@ -63,6 +63,12 @@ class adminController extends Controller
 
     // ----------------------- Rooms --------------------------------------
 
+    public function view_index_rooms($id)
+    {
+        $data_rooms = Kosts::with('rooms')->findOrFail($id);
+        return view('pages.admin.rooms.index', compact('data_rooms'));
+    }
+
     public function view_create_rooms($id)
     {
         $data_rooms = Rooms::find($id);
@@ -78,9 +84,37 @@ class adminController extends Controller
         $room->nama_room = $request->input('nama_room');
         $room->price = $request->input('price');
         $room->capacity = $request->input('capacity');
-
-        // dd($room);
         $room->save();
+
+        return redirect()->route('admin_index');
+    }
+
+    public function view_edit_rooms($id)
+    {
+
+        // $edit_kosts = Kosts::find($id);
+        // return view('pages.admin.kosts.edit', compact('edit_kosts'));
+
+        $rooms_edit = Rooms::find($id);
+        return view('pages.admin.rooms.edit', compact('rooms_edit'));
+    }
+
+    public function edit_rooms(Request $request, $id)
+    {
+        $edit_kosts = Rooms::find($id);
+        $edit_kosts->kosts_id = $request->input('kosts_id');
+        $edit_kosts->nama_room = $request->nama_room;
+        $edit_kosts->price = $request->price;
+        $edit_kosts->capacity = $request->capacity;
+
+        $edit_kosts->save();
+
+        return redirect()->route('admin_index');
+    }
+
+    public function destroy_rooms($id)
+    {
+        Rooms::destroy($id);
         return redirect()->route('admin_index');
     }
 

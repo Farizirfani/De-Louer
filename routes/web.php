@@ -25,18 +25,22 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Route admin
-Route::get('/admin', [adminController::class, 'index'])->name('admin_index');
-Route::get('/admin/create/kosts', [adminController::class, 'view_create_kosts'])->name('admin_create_kosts');
-Route::post('/admin/create/kosts', [adminController::class, 'create_kosts'])->name('create_kosts');
-Route::get('/admin/edit/kosts/{id}', [adminController::class, 'view_edit_kosts'])->name('admin_edit_kosts');
-Route::put('/admin/edit/kosts/{id}', [adminController::class, 'edit_kosts'])->name('edit_kosts');
-Route::delete('/admin/edit/kosts/{id}', [adminController::class, 'destroy_kosts'])->name('destroy_kosts');
+// Route admin for kosts
+Route::get('/admin', [adminController::class, 'index'])->name('admin_index')->middleware('admin');
+Route::get('/admin/create/kosts', [adminController::class, 'view_create_kosts'])->name('admin_create_kosts')->middleware('admin');
+Route::post('/admin/create/kosts', [adminController::class, 'create_kosts'])->name('create_kosts')->middleware('admin');
+Route::get('/admin/edit/kosts/{id}', [adminController::class, 'view_edit_kosts'])->name('admin_edit_kosts')->middleware('admin');
+Route::put('/admin/edit/kosts/{id}', [adminController::class, 'edit_kosts'])->name('edit_kosts')->middleware('admin');
+Route::delete('/admin/edit/kosts/{id}', [adminController::class, 'destroy_kosts'])->name('destroy_kosts')->middleware('admin');
 
 
-//
-Route::get('/admin/create/rooms/{id}', [adminController::class, 'view_create_rooms'])->name('admin_create_rooms');
-Route::post('/admin/create/rooms/{id}/', [adminController::class, 'create_rooms'])->name('create_rooms');
+// Route admin for rooms
+Route::get('/admin/rooms/{id}', [adminController::class, 'view_index_rooms'])->name('view_index_rooms')->middleware('admin');
+Route::get('/admin/create/rooms/{id}', [adminController::class, 'view_create_rooms'])->name('admin_create_rooms')->middleware('admin');
+Route::post('/admin/create/rooms/{id}/', [adminController::class, 'create_rooms'])->name('create_rooms')->middleware('admin');
+Route::get('/admin/edit/rooms/{id}', [adminController::class, 'view_edit_rooms'])->name('view_edit_rooms')->middleware('admin');
+Route::put('/admin/edit/rooms/{id}', [adminController::class, 'edit_rooms'])->name('edit_rooms')->middleware('admin');
+Route::delete('/admin/destroy/rooms/{id}', [adminController::class, 'destroy_rooms'])->name('destroy_rooms')->middleware('admin');
 
 // Route Kosts
 Route::get('/kosts', [KostsController::class, 'index'])->name('kosts');

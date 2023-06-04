@@ -32,8 +32,12 @@
                                 <td class="text-center">{{ $dk->name }}</td>
                                 <td class="text-center">{{ $dk->address }}</td>
                                 <td class="text-center">{{ $dk->description }}</td>
-                                <td class="text-center"><a class="btn btn-primary"
-                                        href="{{ route('admin_create_rooms', $dk->id) }}">New Room</a>
+                                <td class="text-center">
+                                    <div class="">
+                                        <a class="btn btn-primary text-white"
+                                            href="{{ route('view_index_rooms', $dk->id) }}">New Room
+                                        </a>
+                                    </div>
                                 </td>
                                 <td class="tex-center">
                                     <div class="d-flex justify-content-center">
