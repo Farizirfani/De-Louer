@@ -2,8 +2,12 @@
 
 @section('content')
     <div class="card-1 card-1 m-4 p-4">
-        <form method="POST" action="{{ route('create_rooms', $data_rooms->id) }}">
+        <form method="POST" action="{{ route('create_rooms', $data_rooms->id) }}" enctype="multipart/form-data">
             @csrf
+            <div class="mb-3">
+                <label for="image">Image:</label>
+                <input type="file" name="image" id="image" class="form-control-file" required>
+            </div>
             <div class="mb-3">
                 <label for="name" class="form-label">Nama Ruangan</label>
                 <input type="text" name="nama_room" id="nama_room" class="form-control" required>

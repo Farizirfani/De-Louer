@@ -28,7 +28,8 @@
                         <tr class="text-center">
                             <th class="text-center">{{ $no++ }}</th>
                             <td class="text-center">
-                                {{-- <img style="max-width: 80px" src="{{ asset('images/' . $item->image) }}" alt="Foto Product"> --}}
+                                <img style="max-width: 80px" src="{{ asset('images-room/' . $item->image) }}"
+                                    alt="Foto Product">
                             </td>
                             <td class="text-center">{{ $item->kosts_id }}</td>
                             <td class="text-center">{{ $item->nama_room }}</td>

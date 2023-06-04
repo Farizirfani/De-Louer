@@ -28,11 +28,43 @@ class adminController extends Controller
 
     public function create_kosts(Request $request)
     {
-        Kosts::create([
-            'name' => $request->input('name'),
-            'address' => $request->input('address'),
-            'description' => $request->input('description'),
-        ]);
+        // Kosts::create([
+        //     'name' => $request->input('name'),
+        //     'address' => $request->input('address'),
+        //     'description' => $request->input('description'),
+        // ]);
+
+        // $request->validate([
+        //     'name' => 'required',
+        //     'address' => 'required',
+        //     'description' => 'required',
+        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        // ]);
+
+        // $imageName = time() . '.' . $request->image->extension();
+
+        // $request->image->move(public_path('images'), $imageName);
+
+        // Kosts::create([
+        //     'name' => $request->name,
+        //     'address' => $request->address,
+        //     'description' => $request->description,
+        //     'image' => $imageName,
+        // ]);
+
+        $imageName = time() . '.' . $request->image->extension();
+
+        $request->image->move(public_path('images'), $imageName);
+
+        $kosts = new Kosts();
+        $kosts->name = $request->name;
+        $kosts->address = $request->address;
+        $kosts->description = $request->description;
+        $kosts->image = $imageName;
+        $kosts->save();
+        // dd($kosts);
+
+
         return redirect()->route('admin_index');
     }
 
@@ -71,12 +103,19 @@ class adminController extends Controller
 
     public function view_create_rooms($id)
     {
-        $data_rooms = Rooms::find($id);
+        // $data_rooms = Rooms::find($id);
+
+        $data_rooms = Kosts::where('id', $id)->first();
+        // dd($data_rooms);
         return view('pages.admin.rooms.create', compact('data_rooms'));
     }
 
     public function create_rooms(Request $request, $id)
     {
+        $imageName = time() . '.' . $request->image->extension();
+
+        $request->image->move(public_path('images-room'), $imageName);
+
         $kosts_id = Kosts::find($id);
 
         $room = new Rooms;
@@ -84,6 +123,9 @@ class adminController extends Controller
         $room->nama_room = $request->input('nama_room');
         $room->price = $request->input('price');
         $room->capacity = $request->input('capacity');
+        $room->image = $imageName;
+
+        // dd($room);
         $room->save();
 
         return redirect()->route('admin_index');

@@ -4,6 +4,7 @@
     <div>
         <h1>ini dari detail rooms</h1>
         <h1>{{ $detail_room->nama_room }}</h1>
+        <img style="max-width: 250px" src="{{ asset('images-room/' . $detail_room->image) }}" alt="Foto Product">
         {{-- <h1></h1> --}}
 
         {{-- ----------------------- --}}

@@ -2,8 +2,12 @@
 
 @section('content')
     <div class="card-1 card-1 m-4 p-4">
-        <form method="POST" action="{{ route('create_kosts') }}">
+        <form method="POST" action="{{ route('create_kosts') }}" enctype="multipart/form-data">
             @csrf
+            <div class="mb-3">
+                <label for="image">Image:</label>
+                <input type="file" name="image" id="image" class="form-control-file" required>
+            </div>
             <div class="mb-3">
                 <label for="name" class="form-label">Nama Kost</label>
                 <input type="text" name="name" id="name" class="form-control" required>
