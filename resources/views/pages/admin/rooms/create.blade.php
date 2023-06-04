@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>testing ini dari create rooms</h1>
-
     <div class="card-1 card-1 m-4 p-4">
         <form method="POST" action="{{ route('create_rooms', $data_rooms->id) }}">
             @csrf

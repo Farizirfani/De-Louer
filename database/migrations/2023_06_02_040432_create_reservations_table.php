@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('room_id');
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->bigInteger('lama_menginap');
+            $table->bigInteger('total_harga');
             $table->timestamps();
 
             $table->foreign('room_id')->references('id')->on('rooms');

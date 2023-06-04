@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KostsController;
 use App\Http\Controllers\RoomsController;
+use App\Http\Controllers\ReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,3 +52,9 @@ Route::delete('/kosts/{id}', [KostsController::class, 'destroy']);
 // Route Rooms
 Route::get('/rooms', [RoomsController::class, 'index'])->name('rooms');
 Route::get('/rooms/{id}', [RoomsController::class, 'show'])->name('room.show');
+
+//Route Reservations
+// Route::get('/Reservatiom', [Reservations::class, 'view_reservation'])->name('view_reservation');
+// Route::post('/Reservation/{id}', [ReservationController::class, 'create_reservation'])->name('create_reservation');
+
+Route::post('/reservation/{id}', [ReservationController::class, 'create_reservation'])->name('create_reservation');
